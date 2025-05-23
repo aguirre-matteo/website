@@ -4,6 +4,24 @@
 # The first argument must be the commit message. It will default
 # to "Update blog"
 
+# Verify dependencies
+# Hugo:
+if command -v hugo >/dev/null 2>&1; then
+  echo > /dev/null
+else 
+  echo "Error: command 'hugo' not found."
+  exit 1
+fi 
+
+# Git:
+if command -v git >/dev/null 2>&1; then
+  echo > /dev/null
+else 
+  echo "Error: command 'git' not found."
+  exit 1
+fi 
+
+
 
 repo=`realpath $0`
 repo=`dirname $repo`
