@@ -6,7 +6,7 @@ description: Aguirre Matteo's personal website
 Hi, I'm Aguirre Matteo, a young student from a Tech School in Argentina.
 I started to use Linux in 2024 and rapidly fell in love with the open source
 community and decided to become a Linux SysAdmin. I'm currently learning all
-the tools and skills that are needed in a typical job, such as managing and 
+the tools and skills that are needed in a typical job, like managing and 
 configuring services such as DHCPs, DNSs, Web servers, and working with containers.
 
 I've studied English for around 2-3 years, but mainly acquired it due to fully
