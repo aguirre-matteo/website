@@ -2,7 +2,7 @@
 title: "How to use SSH from Scratch"
 description: "Learn how to use and configure SSh to connect to your servers."
 categories: ["linux"]
-tags: ["ssh"]
+tags: ["ssh", "privacy"]
 ---
 
 ## Overview
@@ -120,7 +120,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 We have to type `yes` and press Enter, then the server will be added to our list of known hosts.
 
 ## SSH Keys
-SSH keys are a more powerfull method to authenticate to your servers,
+SSH keys are a more powerful method to authenticate to your servers,
 making your connection more secure and allowing to login without being
 asked for the password. To use SSH keys we first have to generate a
 public-private key pair. To do so we use the `ssh-keygen` command.
