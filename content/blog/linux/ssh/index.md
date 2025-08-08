@@ -1,13 +1,13 @@
 ---
-title: "How to use SSH from Scratch"
-description: "Learn how to use and configure SSh to connect to your servers."
+title: "How to use SSH from scratch"
+description: "Learn how to use and configure ssh to connect to your servers."
 categories: ["linux"]
-tags: ["ssh", "privacy"]
+tags: ["ssh", "privacy", "remote-access", "server"]
 ---
 
 ## Overview
 SSH (Secure SHell) is a protocol designed to securely communicate with a remote computer.
-It validates the identity of user and encrypts all the data is send between the devices. It's
+It validates the identity of user and encrypts all the data is sent between the devices. It's
 widely used to run commands on a server over the internet and transfer files in a secure way. In
 this guide, I'll show you how to install SSH, configure it, and how you can use it to connect to your servers.
 
@@ -59,7 +59,7 @@ options which we can find in the manual running `man sshd_config`. Here
 I show you an example configuration, which modifies the most commonly used options:
 
 ```sshd_config
-# Which port SSH should use. It's highly recommended to keep it
+# Which port SSH should use. It's highly recommended keeping it
 # at 22, since it could break your setup.
 Port 22
 
@@ -67,9 +67,9 @@ Port 22
 # and use sudo instead when needed.
 PermitRootLogin no
 
-# Enables Public Key Autentication, making it posible to login 
+# Enables Public Key Authentication, making it posible to login 
 # using a SSH key instead of using a password.
-PubkeyAutentication yes
+PubkeyAuthentication, yes
 
 # You'll only be able to auth to your server using SSH keys.
 # Make sure you add your keys before disabling this.
@@ -121,7 +121,7 @@ We have to type `yes` and press Enter, then the server will be added to our list
 
 ## SSH Keys
 SSH keys are a more powerful method to authenticate to your servers,
-making your connection more secure and allowing to login without being
+making your connection more secure and allowing to log in without being
 asked for the password. To use SSH keys we first have to generate a
 public-private key pair. To do so we use the `ssh-keygen` command.
 We'll be prompted to enter the path where we want to save the key pair.
@@ -137,7 +137,7 @@ Your identification has been saved in /home/matteo/.ssh/myserver
 Your public key has been saved in /home/matteo/.ssh/myserver.pub
 The key fingerprint is:
 SHA256:lNjTQHE+ojhhdlI9BwoGJKgpt/AjQPNJEtgIUmkI9sQ matteo@nixos
-The key's randomart image is:
+The key's random art image is:
 +--[ED25519 256]--+
 |XO*+o .o=o.      |
 |B=*E o +o*.      |
@@ -154,7 +154,7 @@ The key's randomart image is:
 ```
 
 If we want, we can enter a passphrase for our private key, enhancing the 
-security of the connection. Otherwise leave it empty. Now it's time to
+security of the connection. Otherwise, leave it empty. Now it's time to
 add our keys to our server using the `ssh-copy-id` command.
 
 ```shell
@@ -189,7 +189,7 @@ Last login: Sun Jun  1 18:39:37 2025
 myssh-user@deb-homelab:~$ 
 ```
 
-And *voila*! We wasn't prompted for entering the password! 
+And *voila*! We weren't prompted for entering the password! 
 
 ## File Transfer
 SSH allows us to access the filesystem of our remote server in a safe way,
@@ -246,7 +246,7 @@ apt                    faillog        lastlog         wtmp
 ### SFTP 
 SFTP stands for Secure File Transfer Protocol. It's an improved version of the FTP
 protocol to use SSH to encrypt the communication, and it allows us to interactively
-access the remote filesystem providing commands like `ls`, `cd`, `mkdir`, `rm`, amoung
+access the remote filesystem providing commands like `ls`, `cd`, `mkdir`, `rm`, among
 others. To use it we have to run `sftp` and pass our server as the argument:
 
 ```shell
@@ -305,8 +305,8 @@ and press enter.
 We may face some situations where we are constantly accessing to the same
 server, and it becomes repetitive to write the same username and IP address
 over and over again. To those cases, SSH allows up to create a config file
-under ~/.ssh/config to declare our servers so we can use an alias instead
-of running the entire command. These declarations uses the following syntax:
+under ~/.ssh/config to declare our servers, so we can use an alias instead
+of running the entire command. These declarations use the following syntax:
 
 ```ssh_config
 Host <alias>
@@ -351,8 +351,8 @@ myssh-user@deb-homelab:~$
 ```
 
 ## Conclusion
-In this article I've showed all you need to known to start using SSH to connect
+In this article I've showed all you need to know to start using SSH to connect
 to your servers. It covers how to connect to your servers, install and configure
-a SSH server, how to use use SSH keys to authenticate and how to transfer files
+a SSH server, how to use SSH keys to authenticate and how to transfer files
 from one machine to another. If you find this article useful, feel free to share
 it to someone else or recommend my page. Have a nice day!

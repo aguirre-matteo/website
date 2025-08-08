@@ -2,7 +2,7 @@
 title: "Protecting your files with LUKS"
 description: "Explore how to use LUKS to fully encrypt your sensitive data."
 categories: ["linux"]
-tags: ["luks", "encryption", "privacy"]
+tags: ["luks", "encryption", "privacy", "cryptsetup", "crypttab"]
 ---
 
 ## Overview
@@ -20,7 +20,7 @@ different passphrases to unlock the partition.
 
 ## Requirements
 Before continuing with the guide, we should first install
-the `cryptsetup` package, which provides the utils for
+the `cryptsetup` package, which provides the utilities for
 managing LUKS. 
 
 If we are using Debian/Ubuntu we must run:
@@ -33,7 +33,7 @@ Or in the case we're using a Fedora/RHEL derivative:
 sudo dnf install cryptsetup-luks
 ```
 
-We'll also using `parted` for partitioning the disk, so 
+We'll also be using `parted` for partitioning the disk, so 
 make sure you have it installed, or use your prefered
 tool.
 ```shell
